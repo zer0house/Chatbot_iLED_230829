@@ -14,9 +14,6 @@
 ## 그리고 그 안에 secrets.toml 파일을 만들어 주세요.
 ## 그리고 아래 내용을 작성해주세요.
 ## OPENAI_API_KEY = "sk-..."        # OPENAI_API_KEY는 openai.com에서 발급받으실 수 있습니다.
-### API_KEY 없으신 분은 아래 아무 거나 사용해보세요.
-### iLED_01: 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
-### iLED_02: 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
 
 # requirements.txt
 ## 필요한 모듈들을 적어주는 파일입니다. 이것을 바탕으로 웹 앱을 실행할 때 필요한 모듈들을 설치합니다.
