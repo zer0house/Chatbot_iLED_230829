@@ -1,7 +1,15 @@
+# https://docs.streamlit.io/knowledge-base/tutorials/build-conversational-apps
+# 가운데 부분부터 시작합시다.
+# <Build a bot that mirrors your input> 부분부터 시작.
+# Echo-bot 만들기.
+
+
+# strealit module 설치: pip install streamlit
 import streamlit as st
 
 st.title("Echo Bot")
 
+# Display welcome message
 with st.chat_message(name="user", avatar="https://avatars.githubusercontent.com/u/78703832?v=4"):
     st.write("Hello 😀")
     st.write("I'm Echo Bot. I repeat everything you say.")
@@ -30,3 +38,5 @@ if prompt:
         st.markdown(response)
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})
+    
+# messages에 user와 assistant의 대화 내용이 누적되어 저장됩니다.
