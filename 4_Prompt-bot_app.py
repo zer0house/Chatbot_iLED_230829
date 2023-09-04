@@ -7,10 +7,10 @@ openai.api_key = st.secrets["OPENAI_API_KEY"]
 botName = "Prompt-Bot"
 
 # systemPrompt 선언
-systemPrompt = f"ASSISTANT의 이름은 {botName}입니다. {botName}는 고등학교 과학 수업 AI tutor입니다. 학생들의 질문에 친절하게 대답합니다."
+systemPrompt = f"ASSISTANT의 이름은 {botName}입니다."
 
 # openai_model 선언 
-openai_model = "gpt-3.5-turbo"
+openai_model = "gpt-4"
 
 # max_tokens 선언
 max_tokens = 256
