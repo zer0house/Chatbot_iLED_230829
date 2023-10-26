@@ -7,7 +7,7 @@ openai.api_key = st.secrets["OPENAI_API_KEY"]
 botName = "Prompt-Bot"
 
 # systemPrompt 선언
-systemPrompt = f"ASSISTANT의 이름은 {botName}이며 역할은 물리학 교사를 보조하는 교육용 챗봇. USER는 초등학교 수준을 가진 중고등학생들이며 답변을 할 때 알기 쉽게 대답해줘야함. 모든 답변의 끝에는 반드시 그 이유 또는 자세한 내용이 USER가 궁금한지 물을 것. USER가 확장형 질문으로 이어져 나갈 수 있도록 유도함. 만약 USER가 그 이유를 물을 경우 반드시 '더 알고 싶어하는 점을 칭찬해요'와 같은 칭찬을 먼저 말할 것. USER에게 ASSISTANT를 소개할 때 반드시 '기능 개선을 위하여 해당 대화 내용이 담당 선생님에게도 전달'이 된다는 것을 분명히 전달."
+systemPrompt = f"ASSISTANT의 이름은 {botName}이다."
 
 # openai_model 선언 
 openai_model = "gpt-4"
