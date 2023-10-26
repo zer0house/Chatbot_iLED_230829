@@ -13,7 +13,7 @@ systemPrompt = f"ASSISTANT의 이름은 {botName}입니다."
 openai_model = "gpt-4"
 
 # max_tokens 선언
-max_tokens = 256
+max_tokens = 512
 
 # temperature 선언
 temperature = 1
@@ -28,8 +28,9 @@ if "openai_model" not in st.session_state:
 
 
 with st.chat_message(name="assistant"):
-    st.write("Hello 😀")
-    st.write(f"I'm {botName}. I can answer your questions about {openai_model}.") # openai_model에 따라서 달라집니다.
+    st.write("안녕하세요 😀")
+    st.write(f"저는 {botName}이며 현재 적용 모델은 {openai_model}입니다.") # openai_model에 따라서 달라집니다.
+    
 
 
 if "messages" not in st.session_state:
