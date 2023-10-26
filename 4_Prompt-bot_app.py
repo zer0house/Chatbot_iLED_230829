@@ -31,11 +31,8 @@ with st.chat_message(name="assistant"):
     st.write("안녕하세요 😀")
     st.write(f"저는 {botName}이며 현재 적용 모델은 {openai_model}입니다.") 
 
-    # GPT에게 반갑게 인사하는 문장을 요청하며, stream=True로 설정합니다.
-    greeting_placeholder = st.empty()
-    full_greeting = ""
-    
-    for response in openai.ChatCompletion.create(
+    # GPT에게 반갑게 인사하는 문장을 요청합니다.
+    response = openai.ChatCompletion.create(
         model=openai_model,
         messages=[
             {"role": "system", "content": systemPrompt},
@@ -43,14 +40,10 @@ with st.chat_message(name="assistant"):
         ],
         max_tokens=50,
         temperature=temperature,
-        top_p=top_p,
-        stream=True
-    ):
-        full_greeting += response.choices[0].delta.get("content", "")
-        greeting_placeholder.markdown(full_greeting + "... ")
-
-    greeting_placeholder.markdown(full_greeting.replace("{user}", "사용자"))
-
+        top_p=top_p
+    )
+    greeting_message = response.choices[0].message['content'].strip()
+    st.write(greeting_message.replace("{user}", "사용자"))  # '사용자'는 원하는 이름으로 변경 가능합니다.
 
 
 
