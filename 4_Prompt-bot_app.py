@@ -49,7 +49,7 @@ if not st.session_state.messages:
         top_p=top_p,
         stream=True
     ):
-        greeting_message = response.choices[0].text.strip()
+        greeting_message = response.choices[0].message['content'].strip()
         st.session_state.messages.append({"role": "assistant", "content": greeting_message.replace("{user}", "사용자")})
 
     display_messages(st.session_state.messages)
