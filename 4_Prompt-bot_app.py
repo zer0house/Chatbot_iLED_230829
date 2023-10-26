@@ -49,7 +49,9 @@ with st.chat_message(name="assistant"):
         full_greeting += response.choices[0].delta.get("content", "")
         greeting_placeholder.markdown(full_greeting + "... ")
 
-    greeting_placeholder.markdown(full_greeting.replace("{user}", "사용자")) # '사용자'는 원하는 이름으로 변경 가능합니다.
+    greeting_placeholder.markdown(full_greeting.replace("{user}", "사용자"))
+
+
 
 
 
@@ -64,18 +66,12 @@ for message in st.session_state.messages:
 
 prompt = st.chat_input("What is up?")
 if prompt:     
-    # 사용자 입력을 받은 후 기존의 대화 내용을 임시 리스트에 저장
-    temp_messages = st.session_state.messages.copy()
 
     with st.chat_message("user"):
         st.markdown(prompt)
 
     st.session_state.messages.append({"role": "user", "content": prompt})
 
-    # 기존의 대화 내용을 임시로 표시
-    for message in temp_messages:
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
 
     with st.chat_message("assistant"):
         message_placeholder = st.empty()
