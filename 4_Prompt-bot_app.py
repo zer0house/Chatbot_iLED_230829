@@ -22,7 +22,7 @@ temperature = 1
 # top_p 선언
 top_p = 0.5
 
-st.title(botName) # botName에 따라서 달라집니다.
+st.title(botName)
 
 if "openai_model" not in st.session_state:
     st.session_state.openai_model = openai_model
@@ -49,7 +49,7 @@ if not st.session_state.messages:
         top_p=top_p,
         stream=True
     ):
-        greeting_message = response.choices[0].message['content'].strip()
+        greeting_message = response.choices[0].text.strip()
         st.session_state.messages.append({"role": "assistant", "content": greeting_message.replace("{user}", "사용자")})
 
     display_messages(st.session_state.messages)
