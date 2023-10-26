@@ -29,35 +29,8 @@ if "openai_model" not in st.session_state:
 
 with st.chat_message(name="assistant"):
     st.write("안녕하세요 😀")
-    st.write(f"저는 {botName}이며 현재 적용 모델은 {openai_model}입니다.") 
-
-    # GPT에게 반갑게 인사하는 문장을 요청하며, stream=True로 설정합니다.
+    st.write(f"저는 {botName}이며 현재 적용 모델은 {openai_model}입니다.") # openai_model에 따라서 달라집니다.
     
-if "greeting_displayed" not in st.session_state:
-    st.session_state.greeting_displayed = False
-
-if not st.session_state.greeting_displayed:
-    greeting_placeholder = st.empty()
-    full_greeting = ""
-    
-    for response in openai.ChatCompletion.create(
-        model=openai_model,
-        messages=[
-            {"role": "system", "content": systemPrompt},
-            {"role": "user", "content": "{user}에게 반갑게 인사"}
-        ],
-        max_tokens=50,
-        temperature=temperature,
-        top_p=top_p,
-        stream=True
-    ):
-        full_greeting += response.choices[0].delta.get("content", "")
-        greeting_placeholder.markdown(full_greeting + "... ")
-
-    greeting_placeholder.markdown(full_greeting.replace("{user}", "사용자"))
-    st.session_state.greeting_displayed = True
- # '사용자'는 원하는 이름으로 변경 가능합니다.
-
 
 
 if "messages" not in st.session_state:
