@@ -48,7 +48,6 @@ if not st.session_state.displayed_welcome_message:
             temperature=temperature,
             top_p=top_p,
             stop=None,
-            temperature=temperature
         ).get("choices"):
             full_greeting += response["text"]
         greeting_placeholder.write(full_greeting)
